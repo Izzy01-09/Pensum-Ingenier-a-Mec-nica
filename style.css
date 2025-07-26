@@ -1,0 +1,78 @@
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #fce4ec;
+  color: #4a148c;
+  padding: 20px;
+  margin: 0;
+}
+
+header {
+  background-color: #f3e5f5;
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#malla {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+}
+
+.grupo-semestre {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #e1bee7;
+  border: 2px solid #ce93d8;
+  border-radius: 16px;
+  width: 220px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #d1c4e9;
+  transform: scale(1.05);
+}
+
+.card.aprobada {
+  background-color: #c8e6c9;
+  border-color: #81c784;
+}
+
+.card.bloqueada {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.card .nombre {
+  font-weight: bold;
+  color: #6a1b9a;
+}
+
+.card .codigo {
+  font-size: 0.9em;
+  color: #7b1fa2;
+}
+
+#progreso {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+#alertas {
+  margin-top: 10px;
+  color: #ff4081;
+  font-weight: bold;
+}
