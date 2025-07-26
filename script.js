@@ -26,8 +26,14 @@ function calcularProgreso() {
   porcentajeTexto.textContent = `${porcentaje}% (${aprobados}/${totalCreditos} créditos)`;
 
   let alertas = [];
-  if (aprobados >= 125) alertas.push("🎓 Ya puedes presentar la prueba Saber Pro.");
-  if (aprobados >= 128) alertas.push("📝 Puedes matricular el Seminario de Grado.");
+
+  if (aprobados >= 125) {
+    alertas.push("🎓 Ya puedes presentar la prueba Saber Pro.");
+  }
+
+  if (aprobados >= 128) {
+    alertas.push("📝 Puedes matricular el Seminario de Grado.");
+  }
 
   const creditosPorSemestre = 20;
   const estimadoFaltantes = Math.ceil(restantes / creditosPorSemestre);
