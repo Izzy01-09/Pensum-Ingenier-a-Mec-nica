@@ -1,4 +1,3 @@
-
 let aprobadas = JSON.parse(localStorage.getItem("materiasAprobadas")) || [];
 
 const contenedor = document.getElementById("malla");
@@ -22,6 +21,7 @@ function puedeCursar(materia) {
 function calcularProgreso() {
   const totalCreditos = 166;
   const aprobados = creditosAprobados();
+  const restantes = totalCreditos - aprobados;
   const porcentaje = ((aprobados / totalCreditos) * 100).toFixed(1);
   porcentajeTexto.textContent = `${porcentaje}% (${aprobados}/${totalCreditos} créditos)`;
 
@@ -29,12 +29,9 @@ function calcularProgreso() {
   if (aprobados >= 125) alertas.push("🎓 Ya puedes presentar la prueba Saber Pro.");
   if (aprobados >= 128) alertas.push("📝 Puedes matricular el Seminario de Grado.");
 
-  const totalSemestres = 10;
-  const completados = new Set(
-    materias.filter(m => aprobadas.includes(m.codigo)).map(m => m.semestre)
-  );
-  const faltantes = totalSemestres - completados.size;
-  alertas.push(`📚 Te faltan ${faltantes} semestre(s) por completar.`);
+  const creditosPorSemestre = 20;
+  const estimadoFaltantes = Math.ceil(restantes / creditosPorSemestre);
+  alertas.push(`⏳ Estimado: ${estimadoFaltantes} semestre(s) para completar la carrera.`);
 
   alertasDiv.innerHTML = alertas.join("<br>");
 }
